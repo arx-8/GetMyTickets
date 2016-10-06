@@ -1,36 +1,49 @@
 import java.io.{FileInputStream, FileNotFoundException}
 import java.util.Properties
 
+/**
+  * 例外処理は考えるな
+  * コアに集中しろ
+  */
 object App {
   def main(args: Array[String]): Unit = {
     // debug log の抑制
     java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.SEVERE)
 
     // show
-    println(Settings.getValue("id"))
   }
-}
-
-object Const {
-  // URL
-  val URL_BACKLOG = "http://search.yahoo.co.jp/search?p=scala"
-
-  // PATH
-  val PATH_SETTINGS_PROPERTIES = "D:\\Project\\IdeaProjects\\settings.properties"
 }
 
 object Settings {
-  val p = new Properties()
-
+  // read
+  private val prop = new Properties()
   try {
     val fis = new FileInputStream(Const.PATH_SETTINGS_PROPERTIES)
-    p.load(fis)
+    prop.load(fis)
     fis.close()
   } catch {
     case e: FileNotFoundException =>
-      // TODO make default file
-      println(e.getMessage)
+      initPropFile
+      throw e
   }
 
-  def getValue(key: String): String = p.getProperty(key, "")
+  // set
+  val backlogId = getPropertyStrict("backlogId")
+  val backlogPassword = getPropertyStrict("backlogPassword")
+  //  val gitHubId = getPropertyStrict("gitHubId")
+  //  val gitHubPassword = getPropertyStrict("gitHubPassword")
+  //  val redmineId = getPropertyStrict("redmineId")
+  //  val redminePassword = getPropertyStrict("redminePassword")
+
+  def initPropFile: Unit = {
+    // TODO
+  }
+
+  def getPropertyStrict(key: String): String = {
+    val v = prop.getProperty(key)
+    if (v == null) {
+      throw new NoSuchFieldException("key : " + key)
+    }
+    return v
+  }
 }

@@ -1,5 +1,3 @@
-package adapter
-
 object RedmineAdapter {
 
 }

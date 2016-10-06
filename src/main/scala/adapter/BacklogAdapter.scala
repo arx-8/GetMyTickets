@@ -1,7 +1,6 @@
-package adapter
-
 import org.openqa.selenium.By
 import org.openqa.selenium.htmlunit.HtmlUnitDriver
+
 
 object BacklogAdapter {
   // init
