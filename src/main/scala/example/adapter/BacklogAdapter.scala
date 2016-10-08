@@ -1,8 +1,10 @@
+package example.adapter
+
+import example.Const
 import org.openqa.selenium.By
 import org.openqa.selenium.htmlunit.HtmlUnitDriver
 
-
-object BacklogAdapter {
+class BacklogAdapter {
   // init
   val driver = new HtmlUnitDriver() {
     get(Const.URL_BACKLOG)

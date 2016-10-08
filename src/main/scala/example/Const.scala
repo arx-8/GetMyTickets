@@ -1,3 +1,5 @@
+package example
+
 object Const {
   // URL
   val URL_BACKLOG = "http://search.yahoo.co.jp/search?p=scala"

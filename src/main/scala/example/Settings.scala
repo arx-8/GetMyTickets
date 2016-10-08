@@ -1,18 +1,7 @@
+package example
+
 import java.io.{FileInputStream, FileNotFoundException}
 import java.util.Properties
-
-/**
-  * 例外処理は考えるな
-  * コアに集中しろ
-  */
-object App {
-  def main(args: Array[String]): Unit = {
-    // debug log の抑制
-    java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.SEVERE)
-
-    // show
-  }
-}
 
 object Settings {
   // read
@@ -39,11 +28,20 @@ object Settings {
     // TODO
   }
 
+  /**
+    * 規定の書式でなければException
+    *
+    * @param key
+    * @return
+    */
   def getPropertyStrict(key: String): String = {
-    val v = prop.getProperty(key)
-    if (v == null) {
-      throw new NoSuchFieldException("key : " + key)
+    val v = Option(prop.getProperty(key))
+    v match {
+      case None => {
+        initPropFile
+        throw new NoSuchElementException("設定ファイルの書式異常。 '%s' がない。".format(key))
+      }
+      case Some(v) => v
     }
-    return v
   }
 }
