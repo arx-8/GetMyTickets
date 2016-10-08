@@ -23,6 +23,8 @@ object Settings {
   //  val gitHubPassword = getPropertyStrict("gitHubPassword")
   //  val redmineId = getPropertyStrict("redmineId")
   //  val redminePassword = getPropertyStrict("redminePassword")
+  val urlBacklog = getPropertyStrict("urlBacklog")
+  val urlRedmine = getPropertyStrict("urlRedmine")
 
   def initPropFile: Unit = {
     // TODO
