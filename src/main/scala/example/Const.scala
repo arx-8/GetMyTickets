@@ -2,5 +2,5 @@ package example
 
 object Const {
   // PATH
-  val PATH_SETTINGS_PROPERTIES = "D:\\Project\\IdeaProjects\\settings.properties"
+  val PATH_SETTINGS_PROPERTIES = "D:\\Project\\IdeaProjects\\GetMyTickets\\.secure\\settings.properties"
 }

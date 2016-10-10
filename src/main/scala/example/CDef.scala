@@ -9,7 +9,7 @@ abstract class Enum {
 
 object SizeEnum extends Enum {
 
-  sealed class Size(val value: String)
+  sealed abstract class Size(val value: String)
 
   case object Big extends Size("大")
 
@@ -24,7 +24,7 @@ object SizeEnum extends Enum {
 
 object SettingsKeyEnum extends Enum {
 
-  sealed class SettingsKey(val value: String)
+  sealed abstract class SettingsKey(val value: String)
 
   case object BACKLOG_ID extends SettingsKey("backlogId")
 
@@ -40,3 +40,4 @@ object SettingsKeyEnum extends Enum {
 
   override def values: List[SettingsKey] = List(BACKLOG_ID, BACKLOG_PASSWORD, BACKLOG_URL, GOOGLE_ID)
 }
+

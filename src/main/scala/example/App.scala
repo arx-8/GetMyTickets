@@ -25,6 +25,6 @@ object App {
     }
     println(SizeEnum.values)
 
-    println(Settings.get(SettingsKeyEnum.BACKLOG_ID))
+    println(Settings.get(SettingsKeyEnum.BACKLOG_URL))
   }
 }

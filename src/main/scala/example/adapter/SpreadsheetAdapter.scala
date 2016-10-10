@@ -1,5 +1,5 @@
 package example.adapter
 
-class SpreadsheetAdapter {
+class SpreadsheetAdapter extends BaseAdapter {
 
 }
