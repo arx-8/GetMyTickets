@@ -1,4 +1,4 @@
-package example.adapter
+package com.example.adapter
 
 class SpreadsheetAdapter extends BaseAdapter {
 

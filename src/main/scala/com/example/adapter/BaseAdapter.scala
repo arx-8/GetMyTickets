@@ -1,6 +1,6 @@
-package example.adapter
+package com.example.adapter
 
-import example.dto.TicketDto
+import com.example.dto.TicketDto
 
 import scala.collection.mutable.ArrayBuffer
 

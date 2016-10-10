@@ -1,4 +1,4 @@
-package example
+package com.example
 
 object Const {
   // PATH

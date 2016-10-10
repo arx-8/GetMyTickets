@@ -1,9 +1,9 @@
-package example
+package com.example
 
 import java.io.{FileInputStream, FileNotFoundException}
 import java.util.Properties
 
-import example.SettingsKeyEnum.SettingsKey
+import com.example.SettingsKeyEnum.SettingsKey
 
 object Settings {
   // read

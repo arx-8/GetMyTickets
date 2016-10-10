@@ -1,6 +1,6 @@
-package example
+package com.example
 
-import example.dto.TicketDto
+import com.example.dto.TicketDto
 
 /**
   * 例外処理は考えるな

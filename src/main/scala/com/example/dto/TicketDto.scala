@@ -1,9 +1,8 @@
-package example.dto
+package com.example.dto
 
 import java.time.LocalDate
 
-import example.SizeEnum.Size
-
+import com.example.SizeEnum.Size
 
 class TicketDto {
   // キー

@@ -1,4 +1,4 @@
-package example
+package com.example
 
 /**
   * toStringで個別クラス名が取得できる
