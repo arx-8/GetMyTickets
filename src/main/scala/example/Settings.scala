@@ -3,6 +3,8 @@ package example
 import java.io.{FileInputStream, FileNotFoundException}
 import java.util.Properties
 
+import example.SettingsKeyEnum.SettingsKey
+
 object Settings {
   // read
   private val prop = new Properties()
@@ -16,34 +18,17 @@ object Settings {
       throw e
   }
 
-  // set
-  val backlogId = getPropertyStrict("backlogId")
-  val backlogPassword = getPropertyStrict("backlogPassword")
-  //  val gitHubId = getPropertyStrict("gitHubId")
-  //  val gitHubPassword = getPropertyStrict("gitHubPassword")
-  //  val redmineId = getPropertyStrict("redmineId")
-  //  val redminePassword = getPropertyStrict("redminePassword")
-  val urlBacklog = getPropertyStrict("urlBacklog")
-  val urlRedmine = getPropertyStrict("urlRedmine")
+  // check
+  val missingKeys = SettingsKeyEnum.values.filter(key => prop.getProperty(key.value) == null)
+  if (!missingKeys.isEmpty) {
+    initPropFile
+    val keyNames = missingKeys.map(_.value).mkString(", ")
+    throw new NoSuchElementException("設定ファイルの書式異常。 '%s' がない。".format(keyNames))
+  }
 
   def initPropFile: Unit = {
     // TODO
   }
 
-  /**
-    * 規定の書式でなければException
-    *
-    * @param key
-    * @return
-    */
-  def getPropertyStrict(key: String): String = {
-    val v = Option(prop.getProperty(key))
-    v match {
-      case None => {
-        initPropFile
-        throw new NoSuchElementException("設定ファイルの書式異常。 '%s' がない。".format(key))
-      }
-      case Some(v) => v
-    }
-  }
+  def get(key: SettingsKey): String = prop.getProperty(key.value)
 }

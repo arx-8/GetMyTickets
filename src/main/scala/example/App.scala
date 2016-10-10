@@ -2,7 +2,6 @@ package example
 
 import example.dto.TicketDto
 
-
 /**
   * 例外処理は考えるな
   * コアに集中しろ
@@ -21,11 +20,11 @@ object App {
 
     t.size.get match {
       case SizeEnum.Middle => println("this is mid")
-      case SizeEnum.Big => println("BIG")
+      case SizeEnum.Big => println("the BIG")
       case _ => println("not mid")
     }
-    println(t.size.get == SizeEnum.Big)
-    println(t.size.getClass.toString)
-    println(SizeEnum.Small)
+    println(SizeEnum.values)
+
+    println(Settings.get(SettingsKeyEnum.BACKLOG_ID))
   }
 }
