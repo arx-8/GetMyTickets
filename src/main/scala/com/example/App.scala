@@ -23,7 +23,7 @@ object App {
       case SizeEnum.Big => println("the BIG")
       case _ => println("not mid")
     }
-    println(SizeEnum.values)
+    println(SettingsKeyEnum.values)
 
     println(Settings.get(SettingsKeyEnum.BACKLOG_URL))
   }
